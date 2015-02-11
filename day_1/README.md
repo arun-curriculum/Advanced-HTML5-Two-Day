@@ -127,3 +127,54 @@ canvas_context.lineTo(400, 300);
 
 canvas_context.stroke();
 ```
+
+##Kinetic JS: A Canvas API
+- Canvas is not incredibly intuitive to use, and there is quite a lot you can do with it.
+- Canvas APIs such as KineticJS, PaperJS, and RaphaelJS are commonly used to maximize the canvas potential.
+- We will be practicing using KineticJS to create a scene of rectangles that are draggable:
+
+![Kinetic Scene](images/kinetic_example.png)
+
+Everything in Kinetic starts with a "stage" that will contain the canvas:
+
+```
+var stage = new Kinetic.Stage({
+	container:'container',
+	width:700,
+	height:500
+});
+```
+
+Next we need to create a layer to add elements too:
+
+```
+var layer = new Kinetic.Layer();
+
+stage.add(layer);
+```
+
+Add rectangles to layer:
+
+```
+for (var i = 0; i < 10; i++) {
+	var rect = new Kinetic.Rect({
+		x:10 + (i * 20),
+		y:10 + (i * 20),
+		width:100,
+		height:80,
+		fill:"#900",
+		draggable:true,
+		stroke:"#000000",
+		strokeWidth:2
+	});
+
+	layer.add(rect);
+	layer.draw();
+}
+```
+
+With canvas you can even save the entire stage to JSON to be retrieved at a later time:
+
+```
+localStorage.setItem("rectangle_sample", stage.toJSON());
+```
