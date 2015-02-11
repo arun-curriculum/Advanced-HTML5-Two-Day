@@ -135,7 +135,7 @@ canvas_context.stroke();
 
 ![Kinetic Scene](images/kinetic_example.png)
 
-Everything in Kinetic starts with a "stage" that will contain the canvas:
+####Everything in Kinetic starts with a "stage" that will contain the canvas:
 
 ```
 var stage = new Kinetic.Stage({
@@ -145,7 +145,7 @@ var stage = new Kinetic.Stage({
 });
 ```
 
-Next we need to create a layer to add elements too:
+####Next we need to create a layer to add elements too:
 
 ```
 var layer = new Kinetic.Layer();
@@ -153,7 +153,7 @@ var layer = new Kinetic.Layer();
 stage.add(layer);
 ```
 
-Add rectangles to layer:
+####Add rectangles to layer:
 
 ```
 for (var i = 0; i < 10; i++) {
@@ -173,7 +173,7 @@ for (var i = 0; i < 10; i++) {
 }
 ```
 
-With canvas you can even save the entire stage to JSON to be retrieved at a later time:
+####With canvas you can even save the entire stage to JSON to be retrieved at a later time:
 
 ```
 localStorage.setItem("rectangle_sample", stage.toJSON());
