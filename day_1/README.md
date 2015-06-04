@@ -178,3 +178,15 @@ for (var i = 0; i < 10; i++) {
 ```javascript
 localStorage.setItem("rectangle_sample", stage.toJSON());
 ```
+
+####If you then want to retrieve the JSON and reload the canvas you can do the following:
+
+```javascript
+var json = localStorage.getItem("rectangle_sample");
+var stage = Kinetic.Node.create(json, 'container');
+```
+
+##Canvas Exercise
+- In this exercise we will be saving the above example to localStorage and reloading it upon page load.
+- Your job is to create a button that the user can use to save the canvas where they want it.
+- When the user clicks the button it should save the canvas as JSON in localStorage and retrieve it on page load.
