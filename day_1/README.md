@@ -23,31 +23,31 @@
 
 Canvas Support:
 
-```
+```javascript
 Modernizr.canvas
 ```
 
 Geolocation Support:
 
-```
+```javascript
 Modernizr.geolocation
 ```
 
 Specific Video Formats:
 
-```
+```javascript
 Modernizr.video.h264
 ```
 
 CSS3 Font Face:
 
-```
+```javascript
 Modernizr.fontface
 ```
 
 3D Transforms:
 
-```
+```javascript
 Modernizr.csstransforms3d
 ```
 
@@ -64,7 +64,7 @@ Modernizr.csstransforms3d
 - localStorage data is persisted until it is cleared either programmatically or manually.
 - Let's look at some getter and setter methods for using it:
 
-```
+```javascript
 window.localStorage.setItem("key", "value");
 
 window.localStorage.getItem("key");
@@ -75,7 +75,7 @@ window.localStorage.getItem("key");
 - When the browser is closed sessionStorage is cleared.
 - It has similar getter and setter methods:
 
-```
+```javascript
 window.sessionStorage.setItem("key", "value");
 
 window.sessionStorage.getItem("key");
@@ -98,13 +98,13 @@ window.sessionStorage.getItem("key");
 
 Step 1: Select the canvas element
 
-```
+```javascript
 var canvas = document.getElementById("my-canvas");
 ```
 
 Step 2: Get the canvas "context"
 
-```
+```javascript
 var canvas_context = canvas.getContext("2d");
 ```
 
@@ -112,13 +112,13 @@ var canvas_context = canvas.getContext("2d");
 
 Step 3: Fill the rectangle onto the context
 
-```
+```javascript
 canvas_context.fillRect(100, 100, 200, 200);
 ```
 
 Step 4: Create the line
 
-```
+```javascript
 canvas_context.beginPath();
 
 canvas_context.moveTo(400, 100);
@@ -137,7 +137,7 @@ canvas_context.stroke();
 
 ####Everything in Kinetic starts with a "stage" that will contain the canvas:
 
-```
+```javascript
 var stage = new Kinetic.Stage({
 	container:'container',
 	width:700,
@@ -147,7 +147,7 @@ var stage = new Kinetic.Stage({
 
 ####Next we need to create a layer to add elements too:
 
-```
+```javascript
 var layer = new Kinetic.Layer();
 
 stage.add(layer);
@@ -155,7 +155,7 @@ stage.add(layer);
 
 ####Add rectangles to layer:
 
-```
+```javascript
 for (var i = 0; i < 10; i++) {
 	var rect = new Kinetic.Rect({
 		x:10 + (i * 20),
@@ -175,6 +175,6 @@ for (var i = 0; i < 10; i++) {
 
 ####With canvas you can even save the entire stage to JSON to be retrieved at a later time:
 
-```
+```javascript
 localStorage.setItem("rectangle_sample", stage.toJSON());
 ```
