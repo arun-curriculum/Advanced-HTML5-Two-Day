@@ -64,3 +64,91 @@ function geoSuccess(position) {
 - The framework wraps in a robust UI to make the video look neat.
 - Let's take a look at the [Video.js documentation](https://github.com/videojs/video.js).
 - We will try to implement the oceans video now using Video.js.
+
+##Introduction to Web Sockets
+- One of the most powerful uses for Node is its ability to handle seamless "real-time" experiences.
+- Sockets are a way for a browser and server to communicate without the standard request-response cycle.
+- Chat clients, real-time data feeds, and operational dashboards are some examples of where sockets have been used effectively.
+
+##How it Basically Works
+- A client makes an initial request out to the server and a "handshake" is created - AKA a connection has been established.
+- This "handshake" is given a unique socket with a unique ID.
+- Essentially this request never completes and remains open for the duration of the session.
+- Every further request-response simulation is done via a manifestation of a JavaScript event.
+- In a perfect world this is how things would always operate with sockets but certain factors such as browser incompatibility and more can interfere with a proper handshake. As a result, a more brute-force approach of "polling" may be required.
+
+##Socket.io
+- Socket.io is a library that essentially manages browser capabilities to connect a client with a server through web sockets in the most ideal way possible.
+- It can switch between polling and sockets automatically and basically automate the handshake process.
+- Socket.io works on the client and the server side to achieve seamless interaction.
+
+##Socket-Based Chat Mechanism
+- We will be building a chat application in Node using web sockets.
+
+####The Client Setup
+- The client will also use Socket.io to handle the handshake and any further events.
+- The first thing that will be needed is to create the handshake with the server:
+
+```javascript
+var socket = io.connect("server_url or blank for current server");
+```
+
+- The client can also detect and respond to events:
+
+```javascript
+socket.on('event', function(params) { });
+```
+
+- The client can also "emit" events:
+
+```javascript
+socket.emit('event', params);
+```
+
+##In-Class Lab: Build the Chat
+- In this lab we will be coding working to create a real-time chat application.
+- The front end is already done for you [here](chat_starter_app/).
+- You will be working in js/app.js to develop the code to interact with the web socket server.
+- The server can be found at: http://arunchatserver.herokuapp.com/
+- **Bonus:** Use your knowledge of front end JavaScript to change the page title when a new chat is received.
+
+##Introduction to Web Workers
+- Web workers add concurrency support for JavaScript.
+- With web workers you can accomplish multi-threaded processes with little effort.
+- You would generally use a web worker to run a long-running script of some kind that can run in the background.
+- Let's see how they work:
+
+#####Setting up a web worker
+
+```javascript
+var worker = new Worker("counter.js");
+```
+
+#####Responding to worker events
+- Workers can trigger events which can be detected.
+
+```javascript
+worker.addEventListener("message", function(event) {
+	console.log(event.data);
+});
+```
+
+#####Sending messages from workers (in counter.js)
+- Workers can send messages back to the main file.
+
+```javascript
+self.postMessage(data);
+```
+
+#####Invoking a worker
+- Workers need to be started from the main file in order to run.
+
+```javascript
+worker.postMessage();
+```
+
+##Web Worker Exercise
+- In this exercise we will practice web workers by building a simple counter.
+- You will create a worker that sets an interval and increases a count by 1 every one second.
+- The worker should post the count back to the main file as a message.
+- The main file should detect the message and display the new count on the page.
