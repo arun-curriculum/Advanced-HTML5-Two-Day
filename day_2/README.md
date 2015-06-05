@@ -83,7 +83,6 @@ function geoSuccess(position) {
 - Socket.io works on the client and the server side to achieve seamless interaction.
 
 ##Socket-Based Chat Mechanism
-- We will be building a chat application in Node using web sockets.
 
 ####The Client Setup
 - The client will also use Socket.io to handle the handshake and any further events.
